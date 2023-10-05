@@ -235,7 +235,7 @@ def train():
             model_args.model_name_or_path,
             load_in_8bit=True,
             quantization_config=bnb_config,
-            device_map={"": 0}
+            device_map="auto"
         )
     else:
         bnb_config = BitsAndBytesConfig(
@@ -248,7 +248,7 @@ def train():
             model_args.model_name_or_path,
             load_in_4bit=True,
             quantization_config=bnb_config,
-            device_map={"": 0}
+            device_map="auto"
         )
     model.gradient_checkpointing_enable()
     model = prepare_model_for_kbit_training(model)
