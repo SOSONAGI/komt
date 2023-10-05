@@ -261,9 +261,9 @@ python finetune_with_lora.py --model_name_or_path davidkim205/komt-llama2-7b-v1 
 ```
 보다 자세한 argument에 대한 자세한 설명은 `python finetune_with_lora.py  -h` 확인하세요.
 
-* davidkim205님의 fine-tune 학습 정보
+* davidkim205님의 모델 당 사 fine-tune 학습 정보
   - A6000 x 2 (with NVLink(Not a ada) works both models (7b and 13b) without change any parameters that given by author
-  - Memory usages less than 10GB for each devices
+  - Memory usages less than 10GB for each devices (both models)
 
  * 참고로device_map="auto" 로 수정 후, Aborted (학습 시) 메세지 디버깅 완료
 
