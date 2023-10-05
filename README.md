@@ -250,7 +250,7 @@ komt-llama2 모델을 학습시키는 방법을 제공합니다.
 
 finetune_with_lora.py는 custom dataset을 이용하여 모델 학습을 위한 코드입니다.
 기본적으로 아래와 같이 argument가 없을경우 default로 davidkim205/komt-llama2-7b-v1모델을 base로 [komt_squad.json](datasets%2Fkomt_squad.json)로 학습이 진행됩니다.
-``` 
+```
 
 python finetune_with_lora.py
 
@@ -260,6 +260,12 @@ python finetune_with_lora.py
 python finetune_with_lora.py --model_name_or_path davidkim205/komt-llama2-7b-v1 --data_path datasets/komt_squad.json --num_train_epochs 1 --per_device_train_batch_size 1 --learning_rate 1e-5
 ```
 보다 자세한 argument에 대한 자세한 설명은 `python finetune_with_lora.py  -h` 확인하세요.
+
+* davidkim205님의 fine-tune 학습 정보
+  - A6000 x 2 (with NVLink(Not a ada) works both models (7b and 13b) without change any parameters that given by author
+  - Memory usages less than 10GB for each devices
+
+ * 참고로device_map="auto" 로 수정 후, Aborted (학습 시) 메세지 디버깅 완료
 
 #### finetune 8-bit models with Low Rank Adaption (LoRA)
 finetune_with_lora.py는  기본적으로 4-bit로 양자화하여 학습을 합니다. 
